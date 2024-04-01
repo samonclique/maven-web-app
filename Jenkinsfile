@@ -11,7 +11,11 @@ pipeline {
         }
         stage("Build and Test") {
             steps {
-                
+                sh '''
+                mvn clean
+                mvn test
+                mvn package
+                '''
             }
         }
     }
