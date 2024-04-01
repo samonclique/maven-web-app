@@ -9,5 +9,10 @@ pipeline {
                 git branch: 'samuel', url: 'https://github.com/samonclique/maven-web-app.git'
             }
         }
+        stage("Build and Test") {
+            steps {
+                
+            }
+        }
     }
 }
