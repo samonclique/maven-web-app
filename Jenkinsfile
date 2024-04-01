@@ -30,5 +30,12 @@ pipeline {
                 }
             }
         }
+        stage ("Deploy to Nexus") {
+            steps {
+                withMaven(globalMavenSettingsConfig: 'maven-project', jdk: '', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
+                    sh "mvn deploy"
+                }
+            }
+        }
     }
 }

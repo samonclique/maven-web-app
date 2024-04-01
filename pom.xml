@@ -16,6 +16,22 @@
     </dependency>
    
   </dependencies>
+
+  <distributionManagement>
+	    <repository>
+	      <id>yormen-web-app</id>
+	      <name>yormen-web-app Nexus Repository</name>
+	      <url>http://18.221.254.108:8081/repository/yormen-web-app/</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>yormen-web-app-snapshot</id>
+	      <name>yormen-web-app Snapshot Nexus Repository </name>
+	      <url>http://18.221.254.108:8081/repository/yormen-web-app-snapshot/</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
+
   <build>
     <finalName>maven-web-app</finalName>
     <plugins>
