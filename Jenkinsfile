@@ -37,5 +37,10 @@ pipeline {
                 }
             }
         }
+        stage ("Deploy to tomcat") {
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'jenkins-tomcat-ID', path: '', url: 'http://3.16.159.98:8080/')], contextPath: null, war: 'target/*.war'
+            }
+        }
     }
 }
