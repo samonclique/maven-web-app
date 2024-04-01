@@ -3,6 +3,9 @@ pipeline {
     tools {
         maven "maven3"
     }
+    environment {
+        scannerhome = tool "sonar5"
+    }
     stages {
         stage ("Git clone") {
             steps{
@@ -16,6 +19,15 @@ pipeline {
                 mvn test
                 mvn package
                 '''
+            }
+        }
+        stage ("Sonaqube Analysis") {
+            steps {
+                script {
+                    withSonarQubeEnv(credentialsId: 'jenkins-sonar-key') {
+                       sh "${scannerhome}/bin/sonar-scanner -Dsonar.projectKey=samonclique -Dsonar.projectName=Yormen"
+                    }
+                }
             }
         }
     }
